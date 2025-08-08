@@ -1,0 +1,56 @@
+.tab-bar {
+  transition: all 0.3s ease;
+}
+
+.tab.active {
+  background: linear-gradient(to right, #3b82f6, #14b8a6);
+  color: white;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.2);
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.card-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.card-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+button:hover,
+a:hover {
+  transition: all 0.3s ease;
+}
+
+.bg-card-bg\/80 {
+  background: rgba(30, 41, 59, 0.8);
+}
+
+@media (max-width: 768px) {
+  .background-video {
+    display: none;
+  }
+  .background-image {
+    display: block !important;
+  }
+}

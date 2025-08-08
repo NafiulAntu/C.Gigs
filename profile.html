@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Gigs - Student Freelancing Platform</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-dark": "#0f172a",
+              "primary-blue": "#3b82f6",
+              "primary-teal": "#14b8a6",
+              "card-bg": "#1e293b",
+              "text-light": "#e2e8f0",
+              "text-muted": "#94a3b8",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+            },
+            animation: {
+              "fade-in-up": "fadeInUp 0.6s ease-out forwards",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-primary-dark font-sans text-text-light">
+    <!-- user profile-->
+    <section class="bg-primary-dark text-white py-20">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-4">
+            <img
+              src="https://cdn-useast1.kapwing.com/static/templates/circle-background-profile-picture-maker-regular-abe86059.webp"
+              alt="User Avatar"
+              class="w-24 h-24 rounded-full border-2 border-primary-blue"
+            />
+            <div>
+              <h1 class="text-3xl font-bold">John Doe</h1>
+              <p class="text-lg text-text-muted">Web Developer</p>
+            </div>
+          </div>
+          <div>
+            <button
+              class="bg-primary-blue text-white px-6 py-2 rounded-full font-semibold hover:bg-primary-teal transition-colors duration-300"
+            >
+              Edit Profile
+            </button>
+          </div>
+        </div>
+        
+        <div class="mt-10">
+          <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+          <p class="text-text-muted">
+            Passionate web developer with a knack for creating dynamic and
+            responsive websites. Experienced in HTML, CSS, JavaScript, and
+            various frameworks.
+          </p>
+        </div>
+        <div class="mt-10">
+          
+          <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+          <ul class="list-disc pl-5 space-y-2">
+            <li class="text-text-muted">HTML & CSS</li>
+            <li class="text-text-muted">JavaScript</li>
+            <li class="text-text-muted">React.js</li>
+            <li class="text-text-muted">Node.js</li>
+            <li class="text-text-muted">Express.js</li>
+          </ul>
+        </div>
+        <div class="mt-10">
+          <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+          <p class="text-text-muted">Email:
+            <a href="mailto: john.doe@example.com" class="text-primary-blue">
+
+            </a>
+            </p>
+
+          <p class="text-text-muted">Phone: +123 456 7890</p>
+          <p class="text-text-muted">Location: City, Country</p>
+          
+        </div>
+      </div>
+      </div>
+    </section>
+    <!-- Footer -->
+  
+  </body>
+</html>

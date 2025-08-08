@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Login to Campus Gigs - Student Freelancing Platform"
+    />
+    <title>Campus Gigs - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-dark": "#0f172a",
+              "primary-blue": "#3b82f6",
+              "primary-teal": "#14b8a6",
+              "card-bg": "#1e293b",
+              "text-light": "#e2e8f0",
+              "text-muted": "#94a3b8",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.05)" },
+              },
+            },
+            animation: {
+              "fade-in-up": "fadeInUp 0.8s ease-out forwards",
+              pulse: "pulse 1.5s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .input-error {
+        border-color: #f87171 !important;
+        box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.2);
+      }
+      .error-message {
+        transform: translateY(-8px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      .error-message.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <footer class="bg-primary-dark/95 backdrop-blur-lg py-12 text-center">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3 class="text-xl font-semibold text-primary-teal mb-4">
+              Campus Gigs
+            </h3>
+            <p class="text-text-muted">
+              Empowering student freelancers to connect, create, and succeed.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-primary-teal mb-4">
+              Quick Links
+            </h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#about"
+                  class="text-text-muted hover:text-primary-teal transition"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#gigs"
+                  class="text-text-muted hover:text-primary-teal transition"
+                  >Explore Gigs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-text-muted hover:text-primary-teal transition"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#faq"
+                  class="text-text-muted hover:text-primary-teal transition"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-primary-teal mb-4">
+              Connect With Us
+            </h3>
+            <div class="flex justify-center gap-4">
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                class="text-text-muted hover:text-primary-teal transition"
+                aria-label="Twitter"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                class="text-text-muted hover:text-primary-teal transition"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                class="text-text-muted hover:text-primary-teal transition"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <p class="text-text-muted">
+          &copy; 2025 Campus Gigs. All rights reserved. |
+          <a
+            href="mailto:support@campusgigs.com"
+            class="hover:text-primary-teal transition"
+          >
+            support@campusgigs.com
+          </a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

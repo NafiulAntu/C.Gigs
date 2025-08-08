@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sign up for Campus Gigs - Student Freelancing Platform"
+    />
+    <title>Campus Gigs - Student Freelancing Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "primary-dark": "#0f172a",
+              "primary-blue": "#3b82f6",
+              "primary-teal": "#14b8a6",
+              "card-bg": "#1e293b",
+              "text-light": "#e2e8f0",
+              "text-muted": "#94a3b8",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            keyframes: {
+              fadeInUp: {
+                "0%": { opacity: "0", transform: "translateY(20px)" },
+                "100%": { opacity: "1", transform: "translateY(0)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.05)" },
+              },
+            },
+            animation: {
+              "fade-in-up": "fadeInUp 0.8s ease-out forwards",
+              pulse: "pulse 1.5s ease-in-out infinite",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .input-error {
+        border-color: #f87171 !important;
+        box-shadow: 0 0 0 2px rgba(248, 113, 113, 0.2);
+      }
+      .error-message {
+        transform: translateY(-8px);
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+      .error-message.show {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body class="bg-primary-dark font-sans text-text-light">
+    <section
+      class="flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8"
+    >
+      <div class="bg-card-bg p-6 sm:p-8 rounded-xl shadow-xl w-full max-w-md">
+        <h1
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-teal-300 text-center animate-fade-in-up"
+        >
+          Sign Up
+        </h1>
+        <form id="signupForm" novalidate>
+          <div class="mb-5">
+            <label
+              for="name"
+              class="block text-sm font-medium mb-2 text-text-light"
+            >
+              Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="w-full p-3 bg-primary-dark border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue transition duration-300 ease-in-out"
+              required
+              aria-describedby="nameError"
+              placeholder="Enter your full name"
+            />
+            <p
+              id="nameError"
+              class="text-red-400 text-sm mt-2 error-message"
+            ></p>
+          </div>
+          <div class="mb-5">
+            <label
+              for="email"
+              class="block text-sm font-medium mb-2 text-text-light"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full p-3 bg-primary-dark border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue transition duration-300 ease-in-out"
+              required
+              aria-describedby="emailError"
+              placeholder="Enter your email"
+            />
+            <p
+              id="emailError"
+              class="text-red-400 text-sm mt-2 error-message"
+            ></p>
+          </div>
+          <div class="mb-6">
+            <label
+              for="password"
+              class="block text-sm font-medium mb-2 text-text-light"
+            >
+              Password
+            </label>
+            <div class="relative">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                class="w-full p-3 bg-primary-dark border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue transition duration-300 ease-in-out"
+                required
+                aria-describedby="passwordError"
+                placeholder="Enter your password"
+              />
+              <button
+                type="button"
+                id="togglePassword"
+                class="absolute right-3 top-1/2 -translate-y-1/2 text-text-muted hover:text-text-light transition-colors"
+                aria-label="Toggle password visibility"
+              >
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <p
+              id="passwordError"
+              class="text-red-400 text-sm mt-2 error-message"
+            ></p>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-primary-blue hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg transition duration-300 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed animate-pulse"
+            disabled
+          >
+            Sign Up
+          </button>
+        </form>
+        <p class="mt-6 text-center text-text-muted text-sm">
+          Already have an account?
+          <a
+            href="/login.html"
+            class="text-primary-teal hover:underline transition-colors"
+          >
+            Login
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("signupForm");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const submitButton = form.querySelector('button[type="submit"]');
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordIcon = togglePassword.querySelector("i");
+
+        // Enable submit button only when all fields are filled
+        const checkFormValidity = () => {
+          const isValid =
+            nameInput.value.trim() &&
+            emailInput.value.trim() &&
+            passwordInput.value.trim();
+          submitButton.disabled = !isValid;
+        };
+
+        // Real-time validation
+        const validateField = (
+          input,
+          errorElement,
+          validationFn,
+          errorMessage
+        ) => {
+          const error = document.getElementById(errorElement);
+          if (!validationFn(input.value)) {
+            input.classList.add("input-error");
+            error.textContent = errorMessage;
+            error.classList.add("show");
+            return false;
+          } else {
+            input.classList.remove("input-error");
+            error.textContent = "";
+            error.classList.remove("show");
+            return true;
+          }
+        };
+
+        // Validation functions
+        const validateName = (value) => value.trim().length >= 2;
+        const validateEmail = (value) =>
+          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+        const validatePassword = (value) =>
+          value.length >= 8 && /[A-Z]/.test(value) && /[0-9]/.test(value);
+
+        // Input event listeners
+        nameInput.addEventListener("input", () => {
+          validateField(
+            nameInput,
+            "nameError",
+            validateName,
+            "Name must be at least 2 characters"
+          );
+          checkFormValidity();
+        });
+
+        emailInput.addEventListener("input", () => {
+          validateField(
+            emailInput,
+            "emailError",
+            validateEmail,
+            "Please enter a valid email address"
+          );
+          checkFormValidity();
+        });
+
+        passwordInput.addEventListener("input", () => {
+          validateField(
+            passwordInput,
+            "passwordError",
+            validatePassword,
+            "Password must be 8+ characters with an uppercase letter and a number"
+          );
+          checkFormValidity();
+        });
+
+        // Toggle password visibility
+        togglePassword.addEventListener("click", () => {
+          const isPassword = passwordInput.type === "password";
+          passwordInput.type = isPassword ? "text" : "password";
+          passwordIcon.classList.toggle("fa-eye", isPassword);
+          passwordIcon.classList.toggle("fa-eye-slash", !isPassword);
+        });
+
+        // Form submission
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const isNameValid = validateField(
+            nameInput,
+            "nameError",
+            validateName,
+            "Name must be at least 2 characters"
+          );
+          const isEmailValid = validateField(
+            emailInput,
+            "emailError",
+            validateEmail,
+            "Please enter a valid email address"
+          );
+          const isPasswordValid = validateField(
+            passwordInput,
+            "passwordError",
+            validatePassword,
+            "Password must be 8+ characters with an uppercase letter and a number"
+          );
+
+          if (isNameValid && isEmailValid && isPasswordValid) {
+            console.log("Form submitted:", {
+              name: nameInput.value,
+              email: emailInput.value,
+              password: passwordInput.value,
+            });
+            form.reset();
+            submitButton.disabled = true;
+            gsap.to(".bg-card-bg", {
+              scale: 0.95,
+              opacity: 0,
+              duration: 0.5,
+              ease: "power2.in",
+              onComplete: () => {
+                alert(
+                  "Sign up successful! Please check your email for verification."
+                );
+                gsap.to(".bg-card-bg", {
+                  scale: 1,
+                  opacity: 1,
+                  duration: 0.5,
+                  ease: "power2.out",
+                });
+              },
+            });
+          }
+        });
+
+        // GSAP animations for form elements
+        gsap.from(".bg-card-bg", {
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "power3.out",
+        });
+
+        gsap.from(".mb-5, .mb-6", {
+          opacity: 0,
+          y: 30,
+          stagger: 0.15,
+          delay: 0.3,
+          duration: 0.7,
+          ease: "power3.out",
+        });
+
+        gsap.from('button[type="submit"]', {
+          opacity: 0,
+          y: 20,
+          delay: 0.6,
+          duration: 0.5,
+          ease: "power3.out",
+        });
+      });
+    </script>
+  </body>
+</html>
